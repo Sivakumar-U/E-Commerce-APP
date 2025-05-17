@@ -1,0 +1,11 @@
+image: gitpod/workspace-mysql
+
+tasks:
+    - name: API Build
+      before: |
+        sdk install java 17.0.4.1-tem < /dev/null
+      command: |
+         cd ecommerce-api && mvn spring-boot:run
+    - name: UI Build
+      command: cd ecommerce-ui && npm install && npm start
+      openMode: split-right
